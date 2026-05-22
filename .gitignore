@@ -1,0 +1,8 @@
+#frontend Dependencies
+frontend/node_modules
+
+#backend Dependencies
+backend/node_modules
+
+# Logs
+*.log

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: 'http://host.docker.internal:5000/api' });
 
 export const getTasks = (params) => API.get('/tasks', { params });
 export const getTask = (id) => API.get(`/tasks/${id}`);

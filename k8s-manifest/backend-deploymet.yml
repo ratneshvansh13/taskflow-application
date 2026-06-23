@@ -21,7 +21,7 @@ spec:
         ports:
         - containerPort: 5000
         env:
-         - name: DB_PORT
+        - name: DB_PORT
           value: "3306"
         - name: DB_NAME
           value: taskmanager

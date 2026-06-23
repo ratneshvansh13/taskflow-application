@@ -37,7 +37,7 @@ volumes:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service
+  name: mysql
   namespace: taskflow-app
 spec:
   selector:

@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ratneshvansh/taskflow-frontend:latest
+          image: ratneshvansh13/taskflow-frontend:latest
           ports:
             - containerPort: 3000
 ---
@@ -25,7 +25,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend
   namespace: taskflow-app
 spec:
   selector:

@@ -17,11 +17,11 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ratneshvansh/taskflow-backend:latest
+        image: ratneshvansh/taskflow-backend:
         ports:
         - containerPort: 5000
         env:
-         - name: DB_PORT
+        - name: DB_PORT
           value: "3306"
         - name: DB_NAME
           value: taskmanager

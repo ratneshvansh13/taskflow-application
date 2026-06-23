@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: ratneshvansh/taskflow-frontend:${GITHUB_SHA}
+          image: ratneshvansh/taskflow-frontend:latest
           ports:
             - containerPort: 3000
 ---
@@ -34,4 +34,4 @@ spec:
     - port: 3000
       targetPort: 3000
       protocol: TCP
-    type: NodePort
+  type: NodePort

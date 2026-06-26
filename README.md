@@ -336,92 +336,20 @@ This project is licensed under the MIT License.
 
 ⭐ If you found this project useful, please consider giving it a star.
 
-```
-
 ---
 
-## Setup & Run
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
 
-### Step 1 — Start MySQL
-Make sure MySQL is running on your machine:
-```bash
-# macOS (Homebrew)
-brew services start mysql
+![NodeJS](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
 
-# Ubuntu/Debian
-sudo systemctl start mysql
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
 
-# Windows — start from Services or MySQL Workbench
-```
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-blue?logo=kubernetes)
 
-### Step 2 — Configure Backend
-Edit `backend/.env`:
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=taskmanager
-PORT=5000
-```
+![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-black?logo=githubactions)
 
-### Step 3 — Install & Start Backend
-```bash
-cd backend
-npm install
-npm start
-```
-You should see:
-```
-✅ Database and tables initialized
-🚀 Server running at http://localhost:5000
-```
+![ArgoCD](https://img.shields.io/badge/CD-ArgoCD-red)
 
-### Step 4 — Install & Start Frontend
-Open a new terminal:
-```bash
-cd frontend
-npm install
-npm start
-```
-Browser opens at **http://localhost:3000**
+![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)
 
----
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/tasks` | Get all tasks (supports `?status=`, `?priority=`, `?search=`) |
-| GET | `/api/tasks/:id` | Get single task |
-| POST | `/api/tasks` | Create task |
-| PUT | `/api/tasks/:id` | Update task |
-| DELETE | `/api/tasks/:id` | Delete task |
-| GET | `/api/tasks/meta/stats` | Get dashboard stats |
-| GET | `/api/health` | Health check |
-
-### Example: Create a Task
-```bash
-curl -X POST http://localhost:5000/api/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title": "My Task", "description": "Details here", "priority": "high", "status": "todo"}'
-```
-
----
-
-## Database Schema
-
-```sql
-CREATE TABLE tasks (
-  id          INT AUTO_INCREMENT PRIMARY KEY,
-  title       VARCHAR(255) NOT NULL,
-  description TEXT,
-  status      ENUM('todo', 'in_progress', 'done') DEFAULT 'todo',
-  priority    ENUM('low', 'medium', 'high')       DEFAULT 'medium',
-  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-```
-The database and table are **auto-created** on first server start.
-
----
+![License](https://img.shields.io/badge/License-MIT-green)

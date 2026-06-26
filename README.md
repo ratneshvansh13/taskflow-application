@@ -20,7 +20,7 @@ ArgoCD GitOps deployment
 AWS EC2 hosting
 
 ---
-
+```
 🏗 Architecture
                 GitHub
                    │
@@ -43,29 +43,7 @@ AWS EC2 hosting
                                ▼
                             MySQL
 
-## Project Structure
-
 ```
-# 🚀 TaskFlow Application
-
-A cloud-native **Task Management Application** built with the **MERN Stack** and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
-
----
-
-## 📖 Overview
-
-TaskFlow is a full-stack task management application that demonstrates modern software development and DevOps workflows.
-
-The project follows a production-style architecture with:
-
-* Responsive React frontend
-* RESTful Node.js & Express backend
-* MySQL database
-* Docker containerization
-* Kubernetes orchestration
-* GitHub Actions CI/CD
-* ArgoCD GitOps deployment
-* AWS EC2 hosting
 
 ---
 
@@ -85,67 +63,6 @@ The project follows a production-style architecture with:
 * 🚀 Automated CI/CD pipeline
 
 ---
-
-# 🏗 Architecture
-
-```
-                GitHub
-                   │
-                   ▼
-          GitHub Actions CI/CD
-                   │
-                   ▼
-             Docker Hub Registry
-                   │
-                   ▼
-               ArgoCD (GitOps)
-                   │
-                   ▼
-             Kubernetes Cluster
-          ┌────────┴────────┐
-          │                 │
-          ▼                 ▼
-     React Frontend     Node.js Backend
-                               │
-                               ▼
-                            MySQL
-```
-
----
-
-# 🛠 Tech Stack
-
-## Frontend
-
-* React.js
-* Axios
-* HTML5
-* CSS3
-* JavaScript
-
-## Backend
-
-* Node.js
-* Express.js
-* REST API
-
-## Database
-
-* MySQL
-
-## DevOps
-
-* Docker
-* Docker Compose
-* Kubernetes
-* ArgoCD
-* GitHub Actions
-* Git
-* GitHub
-
-## Cloud
-
-* AWS EC2
 
 ---
 
@@ -415,20 +332,6 @@ This project is licensed under the MIT License.
 
 **Cloud & DevOps Engineer**
 
-### Skills
-
-* AWS
-* Linux
-* Docker
-* Kubernetes
-* GitHub Actions
-* Jenkins
-* Terraform
-* ArgoCD
-* Git
-* Node.js
-* React.js
-
 ---
 
 ⭐ If you found this project useful, please consider giving it a star.
@@ -522,31 +425,3 @@ CREATE TABLE tasks (
 The database and table are **auto-created** on first server start.
 
 ---
-
-## Features
-
-- Create, Read, Update, Delete tasks
-- Filter by status and priority
-- Live search
-- Quick status change from card
-- Dashboard stats (total, todo, in progress, done, high priority)
-- Responsive design (mobile-friendly)
-
----
-
-## Troubleshooting
-
-**"Cannot connect to server"**
-- Make sure the backend is running: `cd backend && npm start`
-- Check MySQL is running and credentials in `.env` are correct
-
-**MySQL auth error**
-```sql
--- Run in MySQL console:
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
-FLUSH PRIVILEGES;
-```
-
-**Port conflicts**
-- Backend default: 5000 → change `PORT` in `.env`
-- Frontend default: 3000 → set `PORT=3001` before `npm start`

@@ -16,24 +16,22 @@ spec:
         app: mysql
     spec:
       containers:
-      - name: mysql
-        image: mysql:8.0
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: root123
-          - name: MYSQL_DATABASE
-            value: taskmanager
-        ports:
-          - containerPort: 3306
-        type: ClusterIP
-        volumeMounts:
-          - name: mysql-data
-            mountPath: /var/lib/mysql
-volumes:
-  - name: mysql-data
-    emptyDir: {}
+        - name: mysql
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: root123
+            - name: MYSQL_DATABASE
+              value: taskmanager
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: mysql-data
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-data
+          emptyDir: {}
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
@@ -43,6 +41,6 @@ spec:
   selector:
     app: mysql
   ports:
-  - port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
   type: ClusterIP

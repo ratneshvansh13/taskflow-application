@@ -1,154 +1,354 @@
-# TaskFlow — React + Node.js + MySQL
+🚀 TaskFlow Application
 
-A full-stack Task Manager with full CRUD, filtering, priority, and status tracking.
-
----
-
-## Requirements
-
-| Tool | Version | Install |
-|------|---------|---------|
-| Node.js | v18+ | https://nodejs.org |
-| npm | v9+ | (comes with Node) |
-| MySQL | v8+ | https://dev.mysql.com/downloads/ |
+A cloud-native Task Management Application built with the MERN Stack and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
 
 ---
 
-## Project Structure
+📖 Overview
+
+TaskFlow is a full-stack task management application that demonstrates modern software development and DevOps workflows.
+
+The project follows a production-style architecture with:
+
+Responsive React frontend
+RESTful Node.js & Express backend
+MySQL database
+Docker containerization
+Kubernetes orchestration
+GitHub Actions CI/CD
+ArgoCD GitOps deployment
+AWS EC2 hosting
+
+---
+```
+🏗 Architecture
+                GitHub
+                   │
+                   ▼
+          GitHub Actions CI/CD
+                   │
+                   ▼
+             Docker Hub Registry
+                   │
+                   ▼
+               ArgoCD (GitOps)
+                   │
+                   ▼
+             Kubernetes Cluster
+          ┌────────┴────────┐
+          │                 │
+          ▼                 ▼
+     React Frontend     Node.js Backend
+                               │
+                               ▼
+                            MySQL
 
 ```
-taskapp/
+
+---
+
+## ✨ Features
+
+* ✅ Create tasks
+* ✏️ Update existing tasks
+* ❌ Delete tasks
+* 📋 View all tasks
+* 🔍 Search tasks
+* 📂 Filter by status
+* 📅 Due date management
+* 📱 Responsive user interface
+* 🔄 REST API integration
+* 🐳 Containerized application
+* ☸ Kubernetes deployment
+* 🚀 Automated CI/CD pipeline
+
+---
+
+---
+
+# 📂 Project Structure
+
+```
+taskflow-application/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── Dockerfile
+│
 ├── backend/
 │   ├── routes/
-│   │   └── tasks.js       # CRUD API routes
-│   ├── db.js              # MySQL connection + init
-│   ├── server.js          # Express app entry
-│   ├── .env               # Environment config
+│   ├── controllers/
+│   ├── db/
+│   ├── Dockerfile
 │   └── package.json
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── App.js         # Main React component
-│   │   ├── App.css        # Styles
-│   │   ├── api.js         # Axios API calls
-│   │   └── index.js       # React entry
-│   └── package.json
-└── README.md
+│
+├── kubernetes/
+│   ├── frontend-deployment.yaml
+│   ├── backend-deployment.yaml
+│   ├── mysql-deployment.yaml
+│   └── services.yaml
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml
+│
+├── docker-compose.yml
+├── README.md
+└── LICENSE
 ```
 
 ---
 
-## Setup & Run
+# 🚀 Getting Started
 
-### Step 1 — Start MySQL
-Make sure MySQL is running on your machine:
+## Clone Repository
+
 ```bash
-# macOS (Homebrew)
-brew services start mysql
+git clone https://github.com/yourusername/taskflow-application.git
 
-# Ubuntu/Debian
-sudo systemctl start mysql
-
-# Windows — start from Services or MySQL Workbench
+cd taskflow-application
 ```
 
-### Step 2 — Configure Backend
-Edit `backend/.env`:
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=your_mysql_password
-DB_NAME=taskmanager
-PORT=5000
-```
+---
 
-### Step 3 — Install & Start Backend
+# ⚙ Backend Setup
+
 ```bash
 cd backend
+
 npm install
+
 npm start
 ```
-You should see:
+
+Backend runs on
+
 ```
-✅ Database and tables initialized
-🚀 Server running at http://localhost:5000
+http://localhost:5000
 ```
 
-### Step 4 — Install & Start Frontend
-Open a new terminal:
+---
+
+# ⚙ Frontend Setup
+
 ```bash
 cd frontend
+
 npm install
+
 npm start
 ```
-Browser opens at **http://localhost:3000**
+
+Frontend runs on
+
+```
+http://localhost:3000
+```
 
 ---
 
-## API Endpoints
+# 🐳 Docker Deployment
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/tasks` | Get all tasks (supports `?status=`, `?priority=`, `?search=`) |
-| GET | `/api/tasks/:id` | Get single task |
-| POST | `/api/tasks` | Create task |
-| PUT | `/api/tasks/:id` | Update task |
-| DELETE | `/api/tasks/:id` | Delete task |
-| GET | `/api/tasks/meta/stats` | Get dashboard stats |
-| GET | `/api/health` | Health check |
+Build containers
 
-### Example: Create a Task
 ```bash
-curl -X POST http://localhost:5000/api/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title": "My Task", "description": "Details here", "priority": "high", "status": "todo"}'
+docker compose build
+```
+
+Run containers
+
+```bash
+docker compose up -d
+```
+
+Stop containers
+
+```bash
+docker compose down
 ```
 
 ---
 
-## Database Schema
+# ☸ Kubernetes Deployment
 
-```sql
-CREATE TABLE tasks (
-  id          INT AUTO_INCREMENT PRIMARY KEY,
-  title       VARCHAR(255) NOT NULL,
-  description TEXT,
-  status      ENUM('todo', 'in_progress', 'done') DEFAULT 'todo',
-  priority    ENUM('low', 'medium', 'high')       DEFAULT 'medium',
-  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+Apply manifests
+
+```bash
+kubectl apply -f kubernetes/
 ```
-The database and table are **auto-created** on first server start.
+
+Check resources
+
+```bash
+kubectl get all
+```
 
 ---
 
-## Features
+# 🔄 CI/CD Pipeline
 
-- Create, Read, Update, Delete tasks
-- Filter by status and priority
-- Live search
-- Quick status change from card
-- Dashboard stats (total, todo, in progress, done, high priority)
-- Responsive design (mobile-friendly)
+Every push to the **main** branch automatically triggers the GitHub Actions workflow.
+
+Pipeline stages:
+
+1. Checkout source code
+2. Install dependencies
+3. Build application
+4. Build Docker images
+5. Push images to Docker Hub
+6. Update Kubernetes manifests
+7. ArgoCD synchronizes the application
+8. Deploy latest version
 
 ---
 
-## Troubleshooting
+# 🔐 Environment Variables
 
-**"Cannot connect to server"**
-- Make sure the backend is running: `cd backend && npm start`
-- Check MySQL is running and credentials in `.env` are correct
+Backend `.env`
 
-**MySQL auth error**
-```sql
--- Run in MySQL console:
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_password';
-FLUSH PRIVILEGES;
+```env
+PORT=5000
+
+DB_HOST=mysql
+
+DB_USER=root
+
+DB_PASSWORD=yourpassword
+
+DB_NAME=taskflow
+
+CLIENT_URL=http://localhost:3000
 ```
 
-**Port conflicts**
-- Backend default: 5000 → change `PORT` in `.env`
-- Frontend default: 3000 → set `PORT=3001` before `npm start`
+---
+
+# 📸 Application Screens
+
+You can add screenshots here.
+
+```
+screenshots/
+├── dashboard.png
+├── add-task.png
+├── edit-task.png
+└── mobile-view.png
+```
+
+---
+
+# 📈 Future Improvements
+
+* User Authentication
+* JWT Authorization
+* Role-Based Access Control
+* Task Categories
+* Email Notifications
+* File Attachments
+* Dark Mode
+* Activity Logs
+* Task Analytics
+* Redis Caching
+
+---
+
+# 🧪 API Endpoints
+
+| Method | Endpoint         | Description    |
+| ------ | ---------------- | -------------- |
+| GET    | `/api/tasks`     | Get all tasks  |
+| GET    | `/api/tasks/:id` | Get task by ID |
+| POST   | `/api/tasks`     | Create task    |
+| PUT    | `/api/tasks/:id` | Update task    |
+| DELETE | `/api/tasks/:id` | Delete task    |
+
+---
+
+# 📊 DevOps Highlights
+
+* Dockerized frontend and backend
+* Multi-container architecture
+* GitHub Actions CI/CD
+* Docker Hub integration
+* Kubernetes deployment
+* ArgoCD GitOps
+* AWS EC2 hosting
+* Infrastructure ready for production
+
+---
+
+# 📚 Learning Outcomes
+
+This project demonstrates:
+
+* Full Stack MERN Development
+* REST API Design
+* Docker Containerization
+* Kubernetes Deployments
+* GitHub Actions Automation
+* GitOps with ArgoCD
+* CI/CD Best Practices
+* Cloud Deployment on AWS
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+
+2. Create a feature branch
+
+```bash
+git checkout -b feature/new-feature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push your branch
+
+```bash
+git push origin feature/new-feature
+```
+
+5. Open a Pull Request
+
+---
+## Demo-Video
+
+<video src="/screenshot/bandicam 2026-06-27 15-07-50-383.mp4" controls width="900"></video>
+
+---
+
+# 👨‍💻 Author
+
+**Ratnesh Vansh Saxena**
+
+**Cloud & DevOps Engineer**
+
+---
+
+⭐ If you found this project useful, please consider giving it a star.
+
+---
+
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+
+![NodeJS](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-blue?logo=kubernetes)
+
+![GitHub Actions](https://img.shields.io/badge/CI-GitHub_Actions-black?logo=githubactions)
+
+![ArgoCD](https://img.shields.io/badge/CD-ArgoCD-red)
+
+![AWS](https://img.shields.io/badge/AWS-EC2-orange?logo=amazonaws)
+
+![License](https://img.shields.io/badge/License-MIT-green)

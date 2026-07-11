@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: taskflow-app
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: ratneshvansh13/taskflow-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_NAME
+          value: taskmanager
+        - name: DB_USER
+          value: root
+        - name: DB_PASSWORD
+          value: root123
+        - name: DB_HOST
+          value: mysql
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: taskflow-app
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 5000
+    targetPort: 5000
+  type: ClusterIP

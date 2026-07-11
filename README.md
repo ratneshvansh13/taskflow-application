@@ -1,6 +1,6 @@
 🚀 TaskFlow Application
 
-A cloud-native Task Management Application built with the MERN Stack and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
+A cloud-native Task Management Application built and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
 
 ---
 

@@ -1,6 +1,6 @@
 🚀 TaskFlow Application
 
-A cloud-native Task Management Application built and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
+A cloud-native Task Management Application built with the MERN Stack and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
 
 ---
 
@@ -112,6 +112,77 @@ cd taskflow-application
 
 ---
 
+# ⚙ Backend Setup
+
+```bash
+cd backend
+
+npm install
+
+npm start
+```
+
+Backend runs on
+
+```
+http://localhost:5000
+```
+
+---
+
+# ⚙ Frontend Setup
+
+```bash
+cd frontend
+
+npm install
+
+npm start
+```
+
+Frontend runs on
+
+```
+http://localhost:3000
+```
+
+---
+
+# 🐳 Docker Deployment
+
+Build containers
+
+```bash
+docker compose build
+```
+
+Run containers
+
+```bash
+docker compose up -d
+```
+
+Stop containers
+
+```bash
+docker compose down
+```
+
+---
+
+# ☸ Kubernetes Deployment
+
+Apply manifests
+
+```bash
+kubectl apply -f kubernetes/
+```
+
+Check resources
+
+```bash
+kubectl get all
+```
 
 ---
 

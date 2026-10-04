@@ -2,6 +2,8 @@
 
 A cloud-native Task Management Application built with the MERN Stack and deployed using modern DevOps practices. The application enables users to create, update, organize, and manage daily tasks through an intuitive web interface. It is containerized with Docker, deployed on Kubernetes, and automated using GitHub Actions and ArgoCD.
 
+### Localhost
+
 ---
 
 📖 Overview
@@ -20,6 +22,7 @@ ArgoCD GitOps deployment
 AWS EC2 hosting
 
 ---
+
 ```
 🏗 Architecture
                 GitHub
@@ -49,18 +52,18 @@ AWS EC2 hosting
 
 ## ✨ Features
 
-* ✅ Create tasks
-* ✏️ Update existing tasks
-* ❌ Delete tasks
-* 📋 View all tasks
-* 🔍 Search tasks
-* 📂 Filter by status
-* 📅 Due date management
-* 📱 Responsive user interface
-* 🔄 REST API integration
-* 🐳 Containerized application
-* ☸ Kubernetes deployment
-* 🚀 Automated CI/CD pipeline
+- ✅ Create tasks
+- ✏️ Update existing tasks
+- ❌ Delete tasks
+- 📋 View all tasks
+- 🔍 Search tasks
+- 📂 Filter by status
+- 📅 Due date management
+- 📱 Responsive user interface
+- 🔄 REST API integration
+- 🐳 Containerized application
+- ☸ Kubernetes deployment
+- 🚀 Automated CI/CD pipeline
 
 ---
 
@@ -239,16 +242,16 @@ screenshots/
 
 # 📈 Future Improvements
 
-* User Authentication
-* JWT Authorization
-* Role-Based Access Control
-* Task Categories
-* Email Notifications
-* File Attachments
-* Dark Mode
-* Activity Logs
-* Task Analytics
-* Redis Caching
+- User Authentication
+- JWT Authorization
+- Role-Based Access Control
+- Task Categories
+- Email Notifications
+- File Attachments
+- Dark Mode
+- Activity Logs
+- Task Analytics
+- Redis Caching
 
 ---
 
@@ -266,14 +269,14 @@ screenshots/
 
 # 📊 DevOps Highlights
 
-* Dockerized frontend and backend
-* Multi-container architecture
-* GitHub Actions CI/CD
-* Docker Hub integration
-* Kubernetes deployment
-* ArgoCD GitOps
-* AWS EC2 hosting
-* Infrastructure ready for production
+- Dockerized frontend and backend
+- Multi-container architecture
+- GitHub Actions CI/CD
+- Docker Hub integration
+- Kubernetes deployment
+- ArgoCD GitOps
+- AWS EC2 hosting
+- Infrastructure ready for production
 
 ---
 
@@ -281,14 +284,14 @@ screenshots/
 
 This project demonstrates:
 
-* Full Stack MERN Development
-* REST API Design
-* Docker Containerization
-* Kubernetes Deployments
-* GitHub Actions Automation
-* GitOps with ArgoCD
-* CI/CD Best Practices
-* Cloud Deployment on AWS
+- Full Stack MERN Development
+- REST API Design
+- Docker Containerization
+- Kubernetes Deployments
+- GitHub Actions Automation
+- GitOps with ArgoCD
+- CI/CD Best Practices
+- Cloud Deployment on AWS
 
 ---
 
@@ -319,6 +322,7 @@ git push origin feature/new-feature
 5. Open a Pull Request
 
 ---
+
 ## Demo-Video
 
 <video src="/screenshot/bandicam 2026-06-27 15-07-50-383.mp4" controls width="900"></video>

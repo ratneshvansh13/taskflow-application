@@ -7,5 +7,22 @@ backend/node_modules
 # Logs
 *.log
 
-.github
-.env
+Target/                      
+
+.git/ 
+
+.github/ 
+
+.idea/ 
+
+.vscode/ 
+
+.settings/ 
+
+.classpath 
+
+.project 
+
+*.log 
+
+README.md 
